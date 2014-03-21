@@ -1,0 +1,8 @@
+# eclipse
+.project
+
+# nodejs
+node_modules
+
+# grunt
+build
