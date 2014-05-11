@@ -19,13 +19,5 @@
     "school"
   ],
   "author": "Swedish Connection",
-  "readmeFilename": "README.md",
-  "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-react": "^0.7.0",
-    "browserify": "^3.33.0",
-    "grunt-browserify": "^2.0.1",
-    "envify": "~1.2.1",
-    "react": "~0.10.0-rc1"
-  }
+  "readmeFilename": "README.md"
 }
