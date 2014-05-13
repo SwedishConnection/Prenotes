@@ -9,3 +9,6 @@ bower_components
 
 # grunt
 build
+
+# wim
+*.swp
