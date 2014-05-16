@@ -4,11 +4,12 @@
  * online.  The majority of communication is notifications. 
  */
 var express = require('express');
+var path = require('path');
 
 
 var app = express();
 app.configure(function() {
-	app.use(express.static(__dirname + '/../../build'));
+	app.use(express.static(__dirname));
 });
 
 

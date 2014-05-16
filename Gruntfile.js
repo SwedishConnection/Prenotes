@@ -21,14 +21,21 @@ module.exports = function(grunt) {
             },
             client: {
                 src: ['src/views/**/*.jsx'],
-                dest: 'build/react.js'
+                dest: 'build/javascript/views-react.js'
             }
         },
 
 	copy: {
-	    build: {
+	    statics: {
 	        cwd: 'src/static',
 	        src: ['index.html'],
+		dest: 'build',
+		expand: true
+	    },
+
+	    app: {
+	        cwd: 'src',
+	        src: ['app.js'],
 		dest: 'build',
 		expand: true
 	    }
