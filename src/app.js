@@ -17,6 +17,10 @@ var path = require('path');
 var env = process.env.NODE_ENV || 'development';
 GLOBAL.config = require('./lib/config/environment')[env];
 
+/**
+ * Setup logging
+ */
+require('./lib/config/logging');
 
 /**
  * Setup database

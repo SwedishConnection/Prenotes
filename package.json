@@ -11,7 +11,8 @@
     "es6-promise": "1.x.x",
     "tingodb": "0.2.x",
     "tungus": "0.0.x",
-    "mongoose": "3.6.x"
+    "mongoose": "3.6.x",
+    "winston": "0.7.x"
   },
   "engines": {
     "node": "*"

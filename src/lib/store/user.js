@@ -3,6 +3,7 @@ var dispatcher = require('../dispatcher');
 var storeConstants = require('../constant/store');
 var EventEmitter = require('events').EventEmitter;
 var mongoose = require('mongoose');
+var logger = require('winston');
 
 /**
  * constants
@@ -20,8 +21,6 @@ var User = mongoose.model('User');
  * private functions
  */
 function createUser(name) {
-  console.log("Create user %s", name);
-
   User.create(
     {
       name: name,
@@ -31,6 +30,8 @@ function createUser(name) {
     function (err) {
       if (err)
         console.log("User create failed: %s", err);
+
+      logger.info("Created user [name: %s]", name);
     }
   );
 }
