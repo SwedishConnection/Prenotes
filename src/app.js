@@ -86,9 +86,41 @@ app.post(
   }
 );
 
+app.get(
+  '/auth/google',
+  passport.authenticate(
+    'google',
+    { scope : ['profile', 'email'] }
+  )
+);
+
+app.get(
+  '/auth/google/callback',
+  passport.authenticate(
+    'google',
+    { successRedirect : '/notification', failureRedirect : '/' }
+  )
+);
+
+app.get(
+  '/notification',
+  isLoggedIn,
+  function(req, res) {
+    res.send(req.user.name);
+  }
+);
+
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+
+  res.redirect('/');
+}
+
 
 /**
  * Server startup
  */
-console.log("Listening on port %d", process.env.PORT || 4730);
-app.listen(process.env.PORT || 4730);
+console.log("Listening on port %d", GLOBAL.config.application.port);
+app.listen(GLOBAL.config.application.port);

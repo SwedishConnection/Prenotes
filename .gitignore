@@ -14,4 +14,4 @@ build
 *.swp
 
 # common settings
-settings.js
+/settings.js

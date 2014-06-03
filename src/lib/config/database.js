@@ -3,10 +3,19 @@ var mongoose = require( 'mongoose' );
 var Schema   = mongoose.Schema;
 
 var User = new Schema({
-  name: {
+  id: {
     type: String,
     required: true,
     unique: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  email: String,
+  authentication: {
+    origin: String,
+    token: String
   },
   created: Date,
   updated: Date
