@@ -12,7 +12,7 @@ var User = new Schema({
   updated: Date
 });
 
-mongoose.model( 'User', User);
+mongoose.model('User', User);
 
 
 /**

@@ -12,7 +12,11 @@
     "tingodb": "0.2.x",
     "tungus": "0.0.x",
     "mongoose": "3.6.x",
-    "winston": "0.7.x"
+    "winston": "0.7.x",
+    "passport": "0.2.x",
+    "passport-google-oauth": "0.1.x",
+    "connect-flash": "0.1.x",
+    "bcrypt-nodejs": "0.0.x"
   },
   "engines": {
     "node": "*"
@@ -36,5 +40,6 @@
     "grunt-contrib-watch": "0.6.0",
     "grunt-contrib-clean": "0.5.x",
     "node-inspector": "0.7.x"
-  }
+  },
+  "settings": "settings.js"
 }

@@ -46,6 +46,12 @@ module.exports = function(grunt) {
         src: ['**/*.js'],
         dest: 'build/lib',
         expand: true
+      },
+
+      settings: {
+        src: ['<%= pkg.settings %>'],
+        dest: 'build/lib/config',
+        expand: true
       }
     }
   });

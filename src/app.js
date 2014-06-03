@@ -9,23 +9,34 @@
  */
 var express = require('express');
 var path = require('path');
+var passport = require('passport');
+var flash = require('connect-flash');
 
 
 /**
  * Configuration
  */
 var env = process.env.NODE_ENV || 'development';
-GLOBAL.config = require('./lib/config/environment')[env];
+GLOBAL.config = require('./lib/config/settings')[env];
+
 
 /**
- * Setup logging
+ * Logging
  */
 require('./lib/config/logging');
 
+
 /**
- * Setup database
+ * Database
  */
 require('./lib/config/database');
+
+
+/**
+ * Security
+ */
+require('./lib/config/passport')(passport);
+
 
 /**
  * Start dispatcher
@@ -36,17 +47,24 @@ var storeConstants = require('./lib/constant/store');
 
 
 /**
- * Routes
+ * Express
  */
 var app = express();
 app.configure(function() {
 	app.use(express.static(__dirname));
+  app.use(express.cookieParser());
+  app.use(express.bodyParser());
+
+  // passport
+  app.use(express.session({ secret: 'swedishconnection' }));
+	app.use(passport.initialize());
+	app.use(passport.session());
+	app.use(flash());
 });
-app.use(express.bodyParser());
 
 
 /**
- * Create user
+ * Routes
  */
 app.post(
   '/create/user',

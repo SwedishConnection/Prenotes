@@ -12,3 +12,6 @@ build
 
 # wim
 *.swp
+
+# common settings
+settings.js
