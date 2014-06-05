@@ -2,6 +2,7 @@
 
 var React   = require('react');
 var Profile = require('./Profile.jsx');
+var $ = require('jquery');
 
 React.renderComponent(
     <Profile

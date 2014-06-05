@@ -21,6 +21,7 @@ var User = new Schema({
   updated: Date
 });
 
+
 mongoose.model('User', User);
 
 

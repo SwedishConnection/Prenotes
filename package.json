@@ -21,7 +21,10 @@
   "engines": {
     "node": "*"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SwedishConnection/Prenotes.git"
+  },
   "keywords": [
     "daycare",
     "preschool",
@@ -34,12 +37,30 @@
     "grunt": "0.4.x",
     "grunt-cli": "0.1.x",
     "react": "0.10.x",
-    "grunt-react": "0.8.x",
     "grunt-browserify": "2.0.x",
     "grunt-contrib-copy": "0.5.x",
     "grunt-contrib-watch": "0.6.0",
     "grunt-contrib-clean": "0.5.x",
-    "node-inspector": "0.7.x"
+    "grunt-bower-task": "0.3.x",
+    "node-inspector": "0.7.x",
+    "browserify-shim": "3.5.x",
+    "reactify": "0.13.x"
   },
-  "settings": "settings.js"
+  "settings": "settings.js",
+  "browser": {
+    "jquery": "./lib/jquery/jquery.js",
+    "bootstrap": "./lib/bootstrap/bootstrap.js"
+  },
+  "browserify-shim": {
+    "jquery": {
+      "exports": "$"
+    },
+    "bootstrap": {
+      "exports": "bootstrap",
+      "depends": [ "jquery:$" ]
+    }
+  },
+  "browserify": {
+    "transform": [ "browserify-shim", "reactify" ]
+  }
 }

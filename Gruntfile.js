@@ -16,13 +16,10 @@ module.exports = function(grunt) {
     },
 
     browserify: {
-      options: {
-        transform: [ require('grunt-react').browserify ]
-      },
-
-      client: {
-        src: ['src/views/**/*.jsx'],
-        dest: 'build/javascript/views-react.js'
+      dist: {
+        files: {
+          'build/bundle.js' : ['src/views/**/*.jsx']
+        }
       }
     },
 
@@ -53,6 +50,11 @@ module.exports = function(grunt) {
         dest: 'build/lib/config',
         expand: true
       }
+    },
+
+    bower: {
+      install: {
+      }
     }
   });
 
@@ -61,6 +63,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-bower-task');
 
 
   grunt.registerTask('default', [
