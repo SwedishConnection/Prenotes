@@ -51,7 +51,7 @@ var storeConstants = require('./lib/constant/store');
  */
 var app = express();
 app.configure(function() {
-	app.use(express.static(__dirname));
+	app.use(express.static(path.join(__dirname, '../client')));
   app.use(express.cookieParser());
   app.use(express.bodyParser());
 

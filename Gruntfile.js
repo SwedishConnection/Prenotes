@@ -16,13 +16,12 @@ module.exports = function(grunt) {
     },
 
     browserify: {
-      options: {
-        debug: true,
-        transform: ['browserify-shim', require('grunt-react').browserify]
-      },
-      dist: {
+      javascript: {
+        options: {
+          transform: ['browserify-shim', require('grunt-react').browserify]
+        },
         files: {
-          'build/bundle.js' : ['src/views/**/*.jsx']
+          'build/client/scripts/bundle-react.js' : ['src/views/**/*.jsx']
         }
       }
     },
@@ -31,28 +30,41 @@ module.exports = function(grunt) {
       statics: {
         cwd: 'src/static',
         src: ['index.html'],
-        dest: 'build',
+        dest: 'build/client',
         expand: true
       },
 
       app: {
         cwd: 'src',
         src: ['app.js'],
-        dest: 'build',
+        dest: 'build/server',
         expand: true
       },
 
       libs: {
         cwd: 'src/lib',
         src: ['**/*.js'],
-        dest: 'build/lib',
+        dest: 'build/server/lib',
         expand: true
       },
 
       settings: {
         src: ['<%= pkg.settings %>'],
-        dest: 'build/lib/config',
+        dest: 'build/server/lib/config',
         expand: true
+      },
+
+      fonts: {
+        src: ['lib/bootstrap/glyphicons-halflings-regular.*'],
+        dest: 'build/client/fonts',
+        expand: true
+      }
+    },
+
+    concat: {
+      css: {
+        src: 'lib/bootstrap/*.css',
+        dest: 'build/client/styles/bundle.css'
       }
     },
 
@@ -67,10 +79,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-bower-task');
 
 
   grunt.registerTask('default', [
-    'clean', 'browserify', 'copy'
+    'clean', 'browserify', 'copy', 'concat'
   ]);
 };
