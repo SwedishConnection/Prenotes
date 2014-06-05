@@ -16,6 +16,10 @@ module.exports = function(grunt) {
     },
 
     browserify: {
+      options: {
+        debug: true,
+        transform: ['browserify-shim', require('grunt-react').browserify]
+      },
       dist: {
         files: {
           'build/bundle.js' : ['src/views/**/*.jsx']

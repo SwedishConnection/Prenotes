@@ -42,6 +42,7 @@
     "grunt-contrib-watch": "0.6.0",
     "grunt-contrib-clean": "0.5.x",
     "grunt-bower-task": "0.3.x",
+    "grunt-react": "0.8.2",
     "node-inspector": "0.7.x",
     "browserify-shim": "3.5.x",
     "reactify": "0.13.x"
@@ -59,8 +60,5 @@
       "exports": "bootstrap",
       "depends": [ "jquery:$" ]
     }
-  },
-  "browserify": {
-    "transform": [ "browserify-shim", "reactify" ]
   }
 }
