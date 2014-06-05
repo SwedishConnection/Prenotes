@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 
     concat: {
       css: {
-        src: 'lib/bootstrap/*.css',
+        src: ['lib/bootstrap/*.css', 'static/prenotes.css'],
         dest: 'build/client/styles/bundle.css'
       }
     },
