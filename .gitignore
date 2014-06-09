@@ -2,14 +2,14 @@
 .project
 
 # nodejs
-node_modules
+/node_modules
 
 # bower
-bower_components
-lib
+/bower_components
+/lib
 
 # grunt
-build
+/build
 
 # wim
 *.swp

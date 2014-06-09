@@ -14,26 +14,7 @@ See the License for the specific language governing permissions and
 */
 
 module.exports = {
-  development: {
-    db: 'tingodb://C:/temp/tingodb',
-
-    logging: {
-      filename: 'C:/temp/winston.log',
-      level : 'debug'
-    },
-
-    application: {
-      name: 'Prenotes (development)',
-      port: 4730,
-      language: 'en'
-    },
-
-    'authentication' : {
-      'google' : {
-        'id' : '',
-        'secret' : '',
-        'callback' : 'http://localhost:4730/auth/google/callback'
-      }
-    }
+  'notification' : {
+    'header' : 'Notification(s)'
   }
 }

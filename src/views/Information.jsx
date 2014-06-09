@@ -16,6 +16,11 @@ See the License for the specific language governing permissions and
 */
 
 var React   = require('react');
+var Polyglot = require('node-polyglot');
+
+var polyglot = new Polyglot({
+  phrases : require('../lib/i18/information/en.js')
+});
 
 module.exports = React.createClass({
 
@@ -24,7 +29,7 @@ module.exports = React.createClass({
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            <h2>Notifications</h2>
+            <h2>{polyglot.t('notification.header')}</h2>
             <p></p>
           </div>
           <div className="col-md-4">
