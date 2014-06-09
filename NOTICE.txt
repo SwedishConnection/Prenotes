@@ -37,6 +37,7 @@ MIT
 
 BSD
   node-inspector
+  polyglot
 
 
 Thanks to those without a license (that we could find):
