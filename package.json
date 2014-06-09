@@ -2,6 +2,7 @@
   "name": "Prenotes",
   "version": "0.1.0",
   "description": "Preschool Notifications",
+  "license": "Apache-2.0",
   "main": "src/routes/index.js",
   "scripts": {
     "test": "mocha"

@@ -1,0 +1,44 @@
+Prenotes
+
+The software ("Software") composes Prenotes is developed by
+Swedish Connection
+   [http://connection.se]
+
+Currently, there is no Copyright � Prenotes taken.  However, the
+Software developed and
+
+The copyright in the bundled Prenotes ) is owned by Swedish Connection.
+The Software developed and owned by Swedish Connection is licensed
+under the Apache License 2.0 (Apache-2.0, http://www.apache.org/licenses/).
+The license is included in the LICENSE.txt file.
+
+The JSON format has no comment syntax but the license applies
+to all JSON files in the Prenotes project.
+
+Third-party licenses
+--------------------
+
+Apache-2.0
+  react
+
+MIT
+  node
+  express
+  mongoose
+  winston
+  passport
+  passport-*
+  connect-flash
+  bower
+  grunt
+  grunt-*
+  browserify
+  browserify-*
+
+BSD
+  node-inspector
+
+
+Thanks to those without a license (that we could find):
+  tingodb
+  tungus
