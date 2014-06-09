@@ -1,10 +1,16 @@
 /** @jsx React.DOM */
 
 var React   = require('react');
+var Header = require('./Header.jsx');
+var Davenport = require('./Davenport.jsx');
+var Information = require('./Information.jsx');
 var $ = require('jquery');
 
 React.renderComponent(
-    <div className="container">
-    </div>,
-    document.getElementById('interaction')
+  <div>
+    <Header/>
+    <Davenport/>
+    <Information/>
+  </div>,
+  document.body
 );
