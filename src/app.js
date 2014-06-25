@@ -31,35 +31,30 @@ var env = process.env.NODE_ENV || 'development';
 GLOBAL.config = require('./lib/config/settings')[env];
 
 
-/**
- * Logging
- */
+// Middleware configuration
+// ------------------------
+// Logging is done with Winston.  Mongoose together with a Tungus bridge
+// makes Tingo calls feel like Mongo.  Passport handles identification
+// through third-parties.
 require('./lib/config/logging');
-
-
-/**
- * Database
- */
 require('./lib/config/database');
-
-
-/**
- * Security
- */
 require('./lib/config/passport')(passport);
 
 
-/**
- * Start dispatcher
- */
+// Starting the dispatcher
+// -----------------------
+// The dispatcher uses promises and the outcomes are
+// broadcast to the stores.
 var dispatcher = require('./lib/dispatcher');
 var userStore = require('./lib/store/user');
 var storeConstants = require('./lib/constant/store');
 
 
-/**
- * Express
- */
+// Express setup
+// -------------
+// Basic Express setup that allows for static content,
+// cookies, JSON content, and Passport sessions (with help)
+// from flash.
 var app = express();
 app.configure(function() {
 	app.use(express.static(path.join(__dirname, '../client')));
@@ -73,9 +68,9 @@ app.configure(function() {
 });
 
 
-/**
- * Routes
- */
+// Routes
+// ------
+// End-points
 app.post(
   '/create/user',
   function(req, res) {
@@ -129,8 +124,8 @@ function isLoggedIn(req, res, next) {
 }
 
 
-/**
- * Server startup
- */
+// Server statup
+// -------------
+// Start the application
 console.log("Listening on port %d", GLOBAL.config.application.port);
 app.listen(GLOBAL.config.application.port);

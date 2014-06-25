@@ -15,6 +15,9 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
+// Main React
+// ----------
+// Entrypoint into React
 var React   = require('react');
 var Header = require('./Header.jsx');
 var Davenport = require('./Davenport.jsx');
