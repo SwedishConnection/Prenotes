@@ -16,3 +16,8 @@
 
 # common settings
 /settings.js
+
+# docco
+/doc/public
+/doc/*.html
+/doc/*.css

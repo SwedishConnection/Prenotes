@@ -85,6 +85,15 @@ module.exports = function(grunt) {
     bower: {
       install: {
       }
+    },
+
+    docco: {
+      doc: {
+        src: ['src/app.js'],
+        options: {
+          output: 'doc/'
+        }
+      }
     }
   });
 
@@ -95,6 +104,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-docco');
 
 
   grunt.registerTask('default', [

@@ -13,18 +13,20 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
-/**
- * Third-party modules
- */
+// Express
+// --------
+// This file is the Express entrypoint.
+//
 var express = require('express');
 var path = require('path');
 var passport = require('passport');
 var flash = require('connect-flash');
 
 
-/**
- * Configuration
- */
+// Global configuration
+// --------------------
+// [Global objects](http://nodejs.org/api/globals.html) let us pass
+// an environment specific configuration into all modules.
 var env = process.env.NODE_ENV || 'development';
 GLOBAL.config = require('./lib/config/settings')[env];
 
@@ -64,7 +66,6 @@ app.configure(function() {
   app.use(express.cookieParser());
   app.use(express.bodyParser());
 
-  // passport
   app.use(express.session({ secret: 'swedishconnection' }));
 	app.use(passport.initialize());
 	app.use(passport.session());
