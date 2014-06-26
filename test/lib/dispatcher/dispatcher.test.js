@@ -1,13 +1,14 @@
 var expect = require('expect.js');
+var dispatcher = normal || require('../../../src/lib/dispatcher');
 
 
 describe('Register', function() {
 
   it('Simple', function() {
-    dispatcher.register(function(payload) {
+    var index = dispatcher.register(function(payload) {
       return true;
     });
 
-    expect(true).to.be.ok();
+    expect(index).to.be(0);
   });
 });
