@@ -104,7 +104,7 @@ module.exports = function(grunt) {
       doc: {
         src: ['src/app.js', 'src/lib/config/logging.js', 'src/views/App.jsx'],
         options: {
-          output: 'doc/',
+          output: 'doc/source',
           languages : {
             ".jsx": {"name": "javascript", "symbol": "//"}
           }

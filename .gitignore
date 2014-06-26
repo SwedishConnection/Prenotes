@@ -18,6 +18,4 @@
 /settings.js
 
 # docco
-/doc/public
-/doc/*.html
-/doc/*.css
+/doc/source
