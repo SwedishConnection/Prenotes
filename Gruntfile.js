@@ -87,6 +87,19 @@ module.exports = function(grunt) {
       }
     },
 
+    mochaTest: {
+      test: {
+        options: {
+          mocha: require('mocha'),
+          reporter: 'spec',
+          require: [
+            function() { dispatcher = require('./src/lib/dispatcher') }
+          ]
+        },
+        src: ['test/**/*.test.js']
+      }
+    },
+
     docco: {
       doc: {
         src: ['src/app.js', 'src/lib/config/logging.js', 'src/views/App.jsx'],
@@ -108,6 +121,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-docco');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
 
   grunt.registerTask('default', [
