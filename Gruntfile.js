@@ -92,9 +92,7 @@ module.exports = function(grunt) {
         options: {
           mocha: require('mocha'),
           reporter: 'spec',
-          require: [
-            function() { normal = require('./src/lib/dispatcher') }
-          ]
+          require: []
         },
         src: ['test/**/*.test.js']
       }

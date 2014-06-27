@@ -41,14 +41,6 @@ require('./lib/config/database');
 require('./lib/config/passport')(passport);
 
 
-// Starting the dispatcher
-// -----------------------
-// The dispatcher uses promises and the outcomes are
-// broadcast to the stores.
-var dispatcher = require('./lib/dispatcher');
-var userStore = require('./lib/store/user');
-var storeConstants = require('./lib/constant/store');
-
 
 // Express setup
 // -------------
@@ -71,26 +63,6 @@ app.configure(function() {
 // Routes
 // ------
 // End-points
-app.post(
-  '/create/user',
-  function(req, res) {
-    dispatcher.dispatch(
-      {
-        source: 'application',
-        action: {
-          target: 'user',
-          type: storeConstants.CREATE
-        },
-        user: {
-          name: req.body.user.name
-        }
-      }
-    );
-
-    res.end();
-  }
-);
-
 app.get(
   '/auth/google',
   passport.authenticate(
