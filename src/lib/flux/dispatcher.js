@@ -1,6 +1,9 @@
 (function() {
     "use strict";
 
+    require('array.from');
+    var Promise = require('es6-promise').Promise;
+
     var Dispatcher = function() {
         this.callbacks = [];
     };
@@ -16,6 +19,10 @@
             });
         },
 
+        // Dispatches the action and accepts additional
+        // arguments that are applied to the callbacks.
+        // Promise.all puts the results of each callback
+        // into an array.
         dispatch: function(action /*, ...args */) {
             var args = Array.from(arguments).slice(1);
 
@@ -37,7 +44,7 @@
             return this.callbacks.length - 1;
         },
 
-        // Splices the callbacks returning the removed
+        // Splices the callbacks returning an array of removed
         // callback or nothing if no elements are removed.
         // Careful here since an index larger than the array
         // will be the array length and negatives begin that

@@ -100,7 +100,7 @@ module.exports = function(grunt) {
 
     docco: {
       doc: {
-        src: ['src/app.js', 'src/lib/config/logging.js', 'src/views/App.jsx'],
+        src: ['src/app.js', 'src/lib/flux/dispatcher.js', 'src/lib/config/logging.js', 'src/views/App.jsx'],
         options: {
           output: 'doc/source',
           languages : {

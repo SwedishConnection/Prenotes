@@ -10,6 +10,7 @@
   "dependencies": {
     "express": "3.x",
     "es6-promise": "1.x.x",
+    "array.from" : "0.1.0",
     "tingodb": "0.2.x",
     "tungus": "0.0.x",
     "mongoose": "3.6.x",
@@ -50,7 +51,8 @@
     "node-inspector": "0.7.x",
     "browserify-shim": "3.5.x",
     "mocha": "1.20.x",
-    "expect.js": "0.3.x",
+    "chai": "1.9.x",
+    "chai-as-promised": "4.1.x",
     "grunt-mocha-test": "0.11.x"
   },
   "settings": "settings.js",
