@@ -69,15 +69,43 @@ module.exports = function(grunt) {
       },
 
       fonts: {
-        src: ['lib/bootstrap/glyphicons-halflings-regular.*'],
-        dest: 'build/client/fonts',
-        expand: true
+        files: [
+          {
+            cwd: 'lib/bootstrap',
+            src: ['glyphicons-halflings-regular.*'],
+            dest: 'build/client/fonts',
+            expand: true
+          },
+          {
+            cwd: 'lib/font-awesome',
+            src: ['fontawesome-webfont.*'],
+            dest: 'build/client/fonts',
+            expand: true
+          }
+        ]
+      },
+
+      scripts: {
+        files: [
+          {
+            cwd: 'lib/bootstrap',
+            src: ['bootstrap.js'],
+            dest: 'build/client/scripts',
+            expand: true
+          },
+          {
+            cwd: 'lib/jquery',
+            src: ['jquery.js'],
+            dest: 'build/client/scripts',
+            expand: true
+          }
+        ]
       }
     },
 
     concat: {
       css: {
-        src: ['lib/bootstrap/*.css', 'static/prenotes.css'],
+        src: ['lib/bootstrap/*.css', 'lib/components-font-awesome/*.css', 'lib/bootstrap-social/*.css', 'src/static/prenotes.css'],
         dest: 'build/client/styles/bundle.css'
       }
     },

@@ -34,15 +34,18 @@ describe('flux', function() {
   });
 
 
-  it('Dispatch', function() {
+  it('Dispatch', function(done) {
     var dispatcher = new flux.Dispatcher();
 
-    var index = dispatcher.register('make stuff happen', function(data) {
-      return data;
-    });
+    var upper = function(data) {
+      return data.toUpperCase();
+    }
 
-    var promise = dispatcher.dispatch('make stuff happen', 'value');
+    var index = dispatcher.register('make stuff happen', upper);
 
-    promise.should.become(['value']).and.notify(done);
+    /** Dispatcher returns a promise */
+    var result = dispatcher.dispatch('make stuff happen', 'value');
+
+    result.should.become(['VALUE']).and.notify(done);
   });
 });

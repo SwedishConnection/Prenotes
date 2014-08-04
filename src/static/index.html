@@ -18,8 +18,92 @@ See the License for the specific language governing permissions and
         <title></title>
         <meta charset="utf-8">
         <link href="styles/bundle.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto|Gloria+Hallelujah">
     </head>
     <body>
-        <script src="scripts/bundle-react.js"></script>
+        <header id="header" role="banner" class="navbar navbar-default navbar-fixed-top">
+            <nav role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#prenotes-navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand prenotes-brand" href="#">Prenotes</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse navbar-right" id="prenotes-navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Notification</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main role="main">
+            <div class="jumbotron">
+                <h2 class="prenotes-signin">Get going</h2>
+                <p>Signing into Prenotes is done via Google, Facebook, etc.  No personal information is saved by Prenotes.</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <a class="btn btn-block btn-social btn-google-plus">
+                                <i class="fa fa-google-plus"></i> with Google
+                            </a>
+                            <a class="btn btn-block btn-social btn-facebook">
+                                <i class="fa fa-facebook"></i> with Facebook
+                            </a>
+                            <hr>
+                            <div>
+                                <a class="btn btn-social-icon btn-dropbox">
+                                    <i class="fa fa-dropbox"></i>
+                                </a>
+                                <a class="btn btn-social-icon btn-reddit">
+                                    <i class="fa fa-reddit"></i>
+                                </a>
+                                <a class="btn btn-social-icon btn-tumblr">
+                                    <i class="fa fa-tumblr"></i>
+                                </a>
+                                <a class="btn btn-social-icon btn-twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-social-icon btn-microsoft">
+                                    <i class="fa fa-windows"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <h2 class="prenotes-sections">About</h2>
+                    <p class="very-big">A little about Prenotes</p>
+                </div>
+                <hr class="big-divider">
+                <div class="row">
+                    <h2 class="prenotes-sections">Notifications</h2>
+                    <p class="very-big">Commication between daycare and a child's care-tackers is done with simple notifications.</p>
+                </div>
+                <hr class="big-divider">
+
+                <footer>
+                    <p class="pull-right">
+                        <a class="btn btn-default btn-sm" href="#">
+                            <i class="fa fa-angle-double-up"></i>
+                        </a>
+                    </p>
+                    <p>© 2014 Swedish Connection</p>
+                </footer>
+            </div>
+        </main>
+
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/bootstrap.js"></script>
     </body>
 </html>
