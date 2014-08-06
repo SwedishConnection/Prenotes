@@ -27,13 +27,35 @@ var Header = require('./Header.jsx');
 var Main = require('./Main.jsx');
 
 
+var SettingsStore = require('../../lib/anybody/store/SettingsStore');
+
+
 var Body = React.createClass({
+  getInitialState: function() {
+		return {
+			lang : SettingsStore.get(['lang'])
+		}
+	},
+
+  changeLanguage: function(lang) {
+    this.setState({
+      lang : lang
+    });
+  },
+
+  componentWillMount: function() {
+    var self = this;
+
+    SettingsStore.addWatch(function (keys, oldState, newState) {
+      self.changeLanguage(SettingsStore.get(['lang']));
+    });
+  },
 
   render: function() {
     return (
       <div id="body">
-        <Header/>
-        <Main/>
+        <Header lang={this.state.lang}/>
+        <Main lang={this.state.lang}/>
       </div>
     )
   }

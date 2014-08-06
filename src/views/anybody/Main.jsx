@@ -31,11 +31,11 @@ module.exports = React.createClass({
   render: function() {
     return (
       <main role="main">
-        <Signin/>
+        <Signin lang={this.props.lang}/>
         <div className="container">
-          <About/>
+          <About lang={this.props.lang}/>
           <hr className="big-divider"/>
-          <Howto/>
+          <Howto lang={this.props.lang}/>
           <hr className="big-divider"/>
           <Footer/>
         </div>

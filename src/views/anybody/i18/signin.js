@@ -14,13 +14,27 @@ See the License for the specific language governing permissions and
 */
 
 module.exports = {
-  'jumbotron' : {
-    'header' : 'Kom igång',
-    'signing' : 'Logga in på Prenotes genom Google, Facebook, mm.  Ingen personlig information om din identitet lagras av Prenotes.'
+  en : {
+    'jumbotron' : {
+      'header' : 'Get started',
+      'signing' : 'Signing into Prenotes is done via Google, Facebook, etc.  No personal information is saved by Prenotes.'
+    },
+
+    'signing' : {
+      'google' : 'with Google',
+      'facebook' : 'with Facebook'
+    }
   },
 
-  'signing' : {
-    'google' : 'med Google',
-    'facebook' : 'med Facebook'
+  sv : {
+    'jumbotron' : {
+      'header' : 'Kom igång',
+      'signing' : 'Logga in på Prenotes genom Google, Facebook, mm.  Ingen personlig information om din identitet lagras av Prenotes.'
+    },
+
+    'signing' : {
+      'google' : 'med Google',
+      'facebook' : 'med Facebook'
+    }
   }
 }

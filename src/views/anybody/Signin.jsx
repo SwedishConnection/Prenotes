@@ -21,33 +21,23 @@ See the License for the specific language governing permissions and
 
 var React = require('react');
 var Polyglot = require('node-polyglot');
-var en = require('./i18/signin/en.js');
-var sv = require('./i18/signin/sv.js');
+var phrases = require('./i18/signin.js');
+
 
 var polyglot = new Polyglot();
-
-var SettingsStore = require('../../lib/anybody/store/SettingsStore');
 
 
 module.exports = React.createClass({
   changeLanguage: function(lang) {
-    switch (lang) {
-      case 'sv':
-        polyglot.extend(sv);
-        break;
-      default:
-        polyglot.extend(en);
-    }
-
-    this.forceUpdate();
+    polyglot.extend(phrases[lang]);
   },
 
   componentWillMount: function() {
-    var self = this;
+    this.changeLanguage(this.props.lang);
+  },
 
-    SettingsStore.addWatch(function (keys, oldState, newState) {
-      self.changeLanguage(SettingsStore.get(['lang']));
-    });
+  componentWillReceiveProps: function(nextProps) {
+    this.changeLanguage(nextProps.lang);
   },
 
   render: function() {
