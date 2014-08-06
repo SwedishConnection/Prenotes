@@ -1,4 +1,6 @@
-<!--
+/** @jsx React.DOM */
+
+/**
    Copyright 2014 Swedish Connection
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -11,16 +13,24 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
    limitations under the License.
--->
-<!doctype html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="utf-8">
-        <link href="styles/bundle.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto|Gloria+Hallelujah">
-    </head>
-    <body>
-        <script src="scripts/bundle-react.js"></script>
-    </body>
-</html>
+*/
+
+// About
+// -----
+// General information about Prenotes some application
+// from the perspective of the owner otherwise a default
+// purpose is given.
+
+var React   = require('react');
+
+module.exports = React.createClass({
+
+  render: function() {
+    return (
+      <div className="row">
+        <h2 className="prenotes-sections">About</h2>
+        <p className="very-big">A little about Prenotes</p>
+      </div>
+    )
+  }
+});

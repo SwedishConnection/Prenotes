@@ -18,7 +18,8 @@
     "passport": "0.2.x",
     "passport-google-oauth": "0.1.x",
     "connect-flash": "0.1.x",
-    "node-polyglot": "0.4.x"
+    "node-polyglot": "0.4.x",
+    "mori": "0.2.x"
   },
   "engines": {
     "node": "*"

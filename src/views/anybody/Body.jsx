@@ -15,20 +15,32 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
-// Main React
-// ----------
-// Entrypoint into React
-var React   = require('react');
+// Anybody
+// -------
+// Entrypoint for the non-signed in page (or splash page)
+// that has 5 main components.  The header has quick links
+// to sections wihtin the main component.  Inside main
+// are the sign, about, how-to, contact and footer sections.
+
+var React = require('react');
 var Header = require('./Header.jsx');
-var Davenport = require('./Davenport.jsx');
-var Information = require('./Information.jsx');
-var $ = require('jquery');
+var Main = require('./Main.jsx');
+
+
+var Body = React.createClass({
+
+  render: function() {
+    return (
+      <div id="body">
+        <Header/>
+        <Main/>
+      </div>
+    )
+  }
+});
+
 
 React.renderComponent(
-  <div>
-    <Header/>
-    <Davenport/>
-    <Information/>
-  </div>,
+  <Body/>,
   document.body
 );

@@ -13,8 +13,31 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
-module.exports = {
-  'notification' : {
-    'header' : 'Notification(s)'
-  }
-}
+// Settings Store
+// --------------
+// Houses stuff like language
+var Dispatcher = require('../AnybodyDispatcher');
+var Constants = require('../AnybodyConstants');
+var Store = require('../../flux/store');
+
+
+var SettingsStore = Store.createStore({
+  getInitialState : function() {
+    return {
+      'lang' : 'en'
+    }
+  },
+
+  dispatcher : Dispatcher,
+
+  actions : [
+    [
+      Constants.Action.CHANGE_LANGUAGE,
+      function(lang) {
+        this.set(['lang'], lang);
+      }
+    ]
+  ]
+});
+
+module.exports = SettingsStore;

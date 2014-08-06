@@ -15,36 +15,21 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
-var React   = require('react');
-var Polyglot = require('node-polyglot');
+// How-to
+// ------
+// How does Prenotes work with notifications?  Again, from
+// the perspective of the owner otherwise default instructions
+// are given.
 
-var polyglot = new Polyglot({
-  phrases : require('../lib/i18/information/en.js')
-});
+var React   = require('react');
 
 module.exports = React.createClass({
 
   render: function() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-            <h2>{polyglot.t('notification.header')}</h2>
-            <p></p>
-          </div>
-          <div className="col-md-4">
-            <h2>Easy</h2>
-            <p></p>
-          </div>
-          <div className="col-md-4">
-            <h2>Safe</h2>
-            <p></p>
-          </div>
-        </div>
-
-        <footer>
-			    <p>&copy; Swedish Connection 2014</p>
-		    </footer>
+      <div className="row">
+        <h2 className="prenotes-sections">How-to</h2>
+        <p className="very-big">Commication between daycare and a child's care-tackers is done with simple notifications.</p>
       </div>
     )
   }

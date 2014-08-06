@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 /**
    Copyright 2014 Swedish Connection
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,13 +13,19 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
-var React   = require('react');
+// Anybody Dispatcher
+// ------------------
+// Dispatcher singleton for the anybody side of Prenotes.
+var Dispatcher = require('../flux/dispatcher');
 
-module.exports = React.createClass({
+// React's copyProperties mutates the object (even
+// enum properties) whereas React's merge makes a copy.
+var copyProperties = require('react/lib/copyProperties');
 
-  render: function() {
-    return (
-      <div id="interaction" className="jumbotron"></div>
-    )
-  }
+
+// Calls the constructor of the dispatcher first then
+// applies properties.
+var AnybodyDispatcher = copyProperties(new Dispatcher(), {
 });
+
+module.exports = AnybodyDispatcher;

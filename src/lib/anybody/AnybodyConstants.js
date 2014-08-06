@@ -1,4 +1,4 @@
-<!--
+/**
    Copyright 2014 Swedish Connection
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -11,16 +11,14 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
    limitations under the License.
--->
-<!doctype html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="utf-8">
-        <link href="styles/bundle.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto|Gloria+Hallelujah">
-    </head>
-    <body>
-        <script src="scripts/bundle-react.js"></script>
-    </body>
-</html>
+*/
+
+var keyMirror = require('react/lib/keyMirror');
+
+module.exports = {
+
+  Action: keyMirror({
+    CHANGE_LANGUAGE: null
+  }),
+
+};
