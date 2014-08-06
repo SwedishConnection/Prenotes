@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           transform: ['browserify-shim', require('grunt-react').browserify]
         },
         files: {
-          'build/client/scripts/bundle-react.js' : ['src/views/**/*.jsx']
+          'build/client/scripts/anybody-react.js' : ['src/views/anybody/**/*.jsx']
         }
       }
     },
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
     copy: {
       statics: {
         cwd: 'src/static',
-        src: ['index.html'],
+        src: ['anybody.html'],
         dest: 'build/client',
         expand: true
       },
