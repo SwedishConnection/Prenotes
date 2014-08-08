@@ -4,8 +4,8 @@ var chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
 chai.should();
 
-var Dispatcher = require('../../../src/lib/flux/dispatcher');
-var Store = require('../../../src/lib/flux/store');
+var Dispatcher = require('../../../src/lib/flux/Dispatcher');
+var Store = require('../../../src/lib/flux/Store');
 var Promise = require('es6-promise').Promise;
 
 
@@ -53,7 +53,7 @@ describe('flux', function() {
 
   it('Store functions', function() {
     var store = new Store();
-    store.mount();
+    store.mount(new Dispatcher());
 
     chai.expect(store.get).to.be.a('function');
   });
@@ -61,7 +61,7 @@ describe('flux', function() {
 
   it('Store set and get a value', function() {
     var store = new Store();
-    store.mount();
+    store.mount(new Dispatcher());
 
     store.set(['stuff', 1, 'car'], 'volvo');
     chai.expect(store.get(['stuff', 1, 'car'])).to.equal('volvo');
@@ -70,7 +70,7 @@ describe('flux', function() {
 
   it('Store set and get a function', function() {
     var store = new Store();
-    store.mount();
+    store.mount(new Dispatcher());
 
     store.set(
       ['completed'],
@@ -84,8 +84,8 @@ describe('flux', function() {
 
 
   it('Watching a store', function(done) {
-    var store = new Store();
-    store.mount();
+    var store = new Store(new Dispatcher());
+    store.mount(new Dispatcher());
 
     store.addWatch(function (keys, oldState, newState) {
       chai.expect(store.get(['completed'])).to.equal(true);
@@ -97,9 +97,7 @@ describe('flux', function() {
 
 
   it('Create a store', function() {
-    var custom = Store.createStore({
-      dispatcher : new Dispatcher(),
-
+    var custom = Store.extend({
       actions : [],
 
       getInitialState : function() {
@@ -108,6 +106,7 @@ describe('flux', function() {
         }
       }
     });
+    custom.mount(new Dispatcher());
 
     chai.expect(custom.get(['lang'])).to.equal('en');
   });
@@ -116,9 +115,7 @@ describe('flux', function() {
   it('Using a store', function(done) {
     var dispatcher = new Dispatcher();
 
-    var custom = Store.createStore({
-      dispatcher : dispatcher,
-
+    var custom = Store.extend({
       actions : [
         [
           'CHANGE_LANGUAGE',
@@ -130,6 +127,7 @@ describe('flux', function() {
         ]
       ]
     });
+    custom.mount(dispatcher);
 
     var result = dispatcher.dispatch('CHANGE_LANGUAGE', 'en');
     result.should.become([custom.get(['lang'])]).and.notify(done);

@@ -82,7 +82,8 @@ module.exports = function(passport) {
                       origin: 'Google'
                     },
                     created: Date.now(),
-                    updated: Date.now()
+                    updated: Date.now(),
+                    group: []
                   },
 
                   function (err, somebody) {

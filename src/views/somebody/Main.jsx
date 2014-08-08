@@ -1,3 +1,5 @@
+/** @jsx React.DOM */
+
 /**
    Copyright 2014 Swedish Connection
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,31 +15,27 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
-// Settings Store
-// --------------
-// Houses stuff like language
-var Dispatcher = require('../AnybodyDispatcher');
-var Constants = require('../AnybodyConstants');
-var Store = require('../../flux/store');
+// Main
+// ------
+var React   = require('react');
 
 
-var SettingsStore = Store.createStore({
-  getInitialState : function() {
-    return {
-      'lang' : 'en'
-    }
+module.exports = React.createClass({
+
+  componentWillMount: function() {
   },
 
-  dispatcher : Dispatcher,
+  render: function() {
+    var jumbotron;
 
-  actions : [
-    [
-      Constants.Action.CHANGE_LANGUAGE,
-      function(lang) {
-        this.set(['lang'], lang);
-      }
-    ]
-  ]
+    if (!this.props.user.group || this.props.user.group.length == 0) {
+      jumbotron = <p>No group</p>
+    }
+
+    return (
+      <main role="main">
+        {jumbotron}
+      </main>
+    )
+  }
 });
-
-module.exports = SettingsStore;

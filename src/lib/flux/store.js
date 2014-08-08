@@ -76,8 +76,9 @@ See the License for the specific language governing permissions and
   };
 
 
-  // Mounts the store
-  Store.prototype.mount = function() {
+  // Mounts the store to a dispatcher instance
+  Store.prototype.mount = function(dispatcher) {
+    this.dispatcher = dispatcher;
     this.watchers = [];
 
     this._resetState();
@@ -98,6 +99,11 @@ See the License for the specific language governing permissions and
     return mori.get_in(this.state, keys);
   };
 
+  // Get JS rather than Mori
+  Store.prototype.getAsJS = function (keys) {
+    return mori.clj_to_js(this.get(keys));
+  };
+
   // Mori style set that captures the old state,
   // notifing changes to watchers
   Store.prototype.set = function (keys, value) {
@@ -115,6 +121,12 @@ See the License for the specific language governing permissions and
 
     this._updateState(newState);
     this._notify(keys, oldState, newState);
+  };
+
+  // Same as set but moves JS arrays to Mori vectors
+  // and JS objects to Mori maps
+  Store.prototype.setFromJS = function (keys, value) {
+    this.set(keys, mori.js_to_clj(value));
   };
 
   // Add a callback for state changes
@@ -141,12 +153,9 @@ See the License for the specific language governing permissions and
     this._notify('*', oldState, this.state);
   };
 
-
-  Store.createStore = function(config) {
-    var store = copyProperties(new Store(), config);
-    store.mount();
-
-    return store;
+  // Extend store
+  Store.extend = function(config) {
+    return copyProperties(new Store(), config);
   };
 
 

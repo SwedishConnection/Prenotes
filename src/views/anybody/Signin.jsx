@@ -49,7 +49,7 @@ module.exports = React.createClass({
         <div className="container">
           <div className="row">
             <div className="col-sm-6 col-sm-offset-3">
-              <a className="btn btn-block btn-social btn-google-plus">
+              <a className="btn btn-block btn-social btn-google-plus" href="/auth/google">
                 <i className="fa fa-google-plus"></i> {polyglot.t('signing.google')}
               </a>
               <a className="btn btn-block btn-social btn-facebook">

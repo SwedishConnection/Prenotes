@@ -17,6 +17,14 @@ var tungus = require('tungus');
 var mongoose = require( 'mongoose' );
 var Schema   = mongoose.Schema;
 
+
+// User
+// ----
+// A user is created only through the passport.js
+// when the profile.id does not correspond to an
+// User.id.  Every user has a set of groups or
+// rolls that drive what can be done in Prenotes
+// immediately after signing in.
 var User = new Schema({
   id: {
     type: String,
@@ -33,16 +41,67 @@ var User = new Schema({
     token: String
   },
   created: Date,
-  updated: Date
+  updated: Date,
+  registered: Date,
+  group: {
+    type: Array
+  }
 });
-
 
 mongoose.model('User', User);
 
 
-/**
- * Setup database (tingodb)
- */
+// Organization
+// ------------
+// A daycare is an organization which has
+// staff, children and administrators.
+var Organization = new Schema({
+  id: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  created: Date,
+  updated: Date,
+  staff: {
+    type: Array
+  },
+  administrator: {
+    type: Array
+  },
+  children: {
+    type: Array
+  }
+});
+
+mongoose.model('Organization', Organization);
+
+
+// Child
+// -----
+var Child = new Schema({
+  id: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  caretaker: {
+    type: Array
+  }
+});
+
+mongoose.model('Child', Child);
+
+
+// Setup the database (Tingo)
 mongoose.connect(GLOBAL.config.db, function(err) {
   if (err)
     console.log('Tingodb connection failed: %s', err);

@@ -62,7 +62,6 @@ app.configure(function() {
 
 // Routes
 // ------
-// End-points
 app.get(
   '/auth/google',
   passport.authenticate(
@@ -75,24 +74,36 @@ app.get(
   '/auth/google/callback',
   passport.authenticate(
     'google',
-    { successRedirect : '/notification', failureRedirect : '/' }
+    { successRedirect : '/somebody', failureRedirect : '/' }
   )
 );
 
 app.get(
-  '/notification',
+  '/somebody',
   isLoggedIn,
   function(req, res) {
-    res.send(req.user.name);
+    res.sendfile(path.join(__dirname, '../client/somebody.html'));
   }
 );
 
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+app.get(
+  '/user',
+  isLoggedIn,
+  function(req, res) {
+    res.json(req.user);
+  }
+);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
     return next();
 
-  res.redirect('/anybody.html');
+  res.redirect('/');
 }
 
 

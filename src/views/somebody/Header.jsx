@@ -17,16 +17,11 @@ See the License for the specific language governing permissions and
 
 // Header
 // ------
-// Section for Bootstrap navigation with a brand for
-// Prenotes.  Navigation is fixed in a fuild container.
+
 var React = require('react');
-var flux = require('flux');
+
 
 module.exports = React.createClass({
-
-  changeLanguage : function(lang) {
-    flux.Dispatcher.dispatch(flux.Constants.Action.CHANGE_LANGUAGE, lang);
-  },
 
   render: function() {
     return (
@@ -44,16 +39,7 @@ module.exports = React.createClass({
 
             <div className="collapse navbar-collapse navbar-right" id="prenotes-navbar-collapse">
               <ul className="nav navbar-nav">
-                <li><a href="#">About</a></li>
-                <li><a href="#">How-To</a></li>
-                <li><a href="#">Contact</a></li>
-                <li className="dropdown">
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown">Language <span className="caret"></span></a>
-                  <ul className="dropdown-menu" role="menu">
-                    <li><a href="#" onClick={this.changeLanguage.bind(this, 'en')}>English</a></li>
-                    <li><a href="#" onClick={this.changeLanguage.bind(this, 'sv')}>Swedish</a></li>
-                  </ul>
-                </li>
+                <li><a href="/logout">Logout</a></li>
               </ul>
             </div>
           </div>

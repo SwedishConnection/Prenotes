@@ -13,34 +13,21 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
-module.exports = {
-  development: {
-    db: 'tingodb://C:/temp/tingodb',
+// User Store
+// ----------
+// Everything about the User
+var Constants = require('./Constants');
+var Store = require('../../lib/flux/Store');
 
-    logging: {
-      filename: 'C:/temp/winston.log',
-      level : 'debug'
-    },
 
-    application: {
-      name: 'Prenotes (development)',
-      port: 4730,
-      language: 'en'
-    },
+var UserStore = Store.extend({
+  getInitialState : function() {
+    return {
+    }
+  },
 
-    authentication : {
-      google : {
-        id : '',
-        secret : '',
-        callback : 'http://localhost:4730/auth/google/callback'
-      }
-    },
+  actions : [
+  ]
+});
 
-    superuser : [
-      {
-        key : 'email',
-        id : 'matthewdyoung@gmail.com'
-      }
-    ]
-  }
-}
+module.exports = UserStore;

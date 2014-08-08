@@ -30,12 +30,58 @@ module.exports = function(grunt) {
     },
 
     browserify: {
-      javascript: {
-        options: {
-          transform: ['browserify-shim', require('grunt-react').browserify]
-        },
+      vender: {
         files: {
-          'build/client/scripts/anybody-react.js' : ['src/views/anybody/**/*.jsx']
+          'build/client/scripts/vender.js' : [
+            'src/lib/config/vender.js'
+          ]
+        },
+        options: {
+          transform: [
+            'browserify-shim'
+          ],
+          alias: [
+            'react:react',
+            'node-polyglot:node-polyglot',
+            'src/views/flux:flux'
+          ]
+        }
+      },
+
+
+      anybody: {
+        files: {
+          'build/client/scripts/anybody-react.js': [
+             'src/views/anybody/**/*.jsx'
+          ]
+        },
+        options: {
+          transform: [
+            require('grunt-react').browserify
+          ],
+          external: [
+            'react',
+            'node-polyglot',
+            'flux'
+          ]
+        }
+      },
+
+      somebody: {
+        files: {
+          'build/client/scripts/somebody-react.js': [
+             'src/views/somebody/**/*.jsx'
+          ]
+        },
+        options: {
+          transform: [
+            require('grunt-react').browserify
+          ],
+          external: [
+            'react',
+            'node-polyglot',
+            'flux'
+          ]
         }
       }
     },
@@ -43,7 +89,7 @@ module.exports = function(grunt) {
     copy: {
       statics: {
         cwd: 'src/static',
-        src: ['anybody.html'],
+        src: ['index.html', 'somebody.html'],
         dest: 'build/client',
         expand: true
       },
@@ -80,23 +126,6 @@ module.exports = function(grunt) {
             cwd: 'lib/font-awesome',
             src: ['fontawesome-webfont.*'],
             dest: 'build/client/fonts',
-            expand: true
-          }
-        ]
-      },
-
-      scripts: {
-        files: [
-          {
-            cwd: 'lib/bootstrap',
-            src: ['bootstrap.js'],
-            dest: 'build/client/scripts',
-            expand: true
-          },
-          {
-            cwd: 'lib/jquery',
-            src: ['jquery.js'],
-            dest: 'build/client/scripts',
             expand: true
           }
         ]

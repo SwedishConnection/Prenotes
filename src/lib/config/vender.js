@@ -13,10 +13,7 @@ See the License for the specific language governing permissions and
    limitations under the License.
 */
 
-var keyMirror = require('react/lib/keyMirror');
-
-module.exports = keyMirror({
-  CREATE: null,
-  UPDATE: null,
-  DELETE: null
-});
+require('jquery');
+require('bootstrap');
+require('react');
+require('node-polyglot');

@@ -63,11 +63,11 @@
   },
   "browserify-shim": {
     "jquery": {
-      "exports": "$"
+      "exports": "jQuery"
     },
     "bootstrap": {
       "exports": "bootstrap",
-      "depends": [ "jquery:$" ]
+      "depends": [ "jquery:jQuery" ]
     }
   }
 }
