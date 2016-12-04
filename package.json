@@ -1,0 +1,7 @@
+{
+    "name": "prenotes",
+
+    "dependencies": {
+        "material-design-lite": "1.2.1"
+    }
+}
